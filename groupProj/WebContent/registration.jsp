@@ -11,22 +11,32 @@
 <h1>Registration Page</h1>
 <h2>All Fields Required*</h2> 
 
-<form  action= “registerServlet” method= “get”> 
-
-<label> Email Address* </label><br/>
-<input type="text" name="email" placeholder="Email" required><br/>
-
-<label> Confirm Email Address* </label><br/>
-<input type="text" name="email" placeholder="Confirm Email Address" required><br/>
-
-<label> Password* </label><br/>
-<input type="password" name="password" placeholder="Password" required><br/>
+<form  action= “register” method= “post”> 
 
 <label> First Name* </label><br/>
 <input type="text" name="firstName" placeholder="First Name" required><br/>
 
 <label> Last Name* </label><br/>
 <input type="text" name="lastName" placeholder="Last Name" required><br/>
+
+<label> Phone Number* </label><br/>
+<input type="text" name="phoneNum" placeholder="Phone Number" required><br/>
+
+<label> Email Address* </label><br/>
+<input type="text" name="email" placeholder="Email" required><br/>
+
+<label> Address* </label><br/>
+<input type="text" name="address" placeholder="Address" required><br/>
+
+<label> Payment Type* </label><br/>
+<input type="text" name="paymentInfo" placeholder="Payment Type" required><br/>
+
+<label> UserName* </label><br/>
+<input type="text" name="username" placeholder="UserName" required><br/>
+
+<label> Password* </label><br/>
+<input type="password" name="password" placeholder="Password" required><br/>
+
 <br/>
 <input type="submit"> <br/>
 

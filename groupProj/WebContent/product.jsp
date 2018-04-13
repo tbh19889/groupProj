@@ -4,23 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<title>Welcome to the Store</title>
+<title>Products</title>
 </head>
-
 <body>
 
-<h1>Welcome to the Store</h1>
-
-
-<form action= "login.jsp" method = "post">
-<button class="button1">Login</button>
-</form>
-
-<form action= "registration.jsp" method = "post">
-<button class="button1">Register</button>
-</form>
-
 </body>
-
 </html>

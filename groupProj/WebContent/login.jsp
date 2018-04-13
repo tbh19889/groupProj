@@ -12,7 +12,7 @@
 <h2>Sign in your existing The Store account</h2>
 <h2>All Fields Required*</h2> 
 
-<form  action= “login.jsp” method= “get”> 
+<form  action= “login” method= “post”> 
 
 <label> Email Address* </label><br/>
 <input type="text" name="email" placeholder="Email" required><br/>
