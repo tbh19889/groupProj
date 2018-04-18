@@ -12,16 +12,15 @@
 <h2>Sign in your existing The Store account</h2>
 <h2>All Fields Required*</h2> 
 
-<form  action= “login” method= “post”> 
+<form  action= "login" method = "post"> 
 
 <label> Email Address* </label><br/>
-<input type="text" name="email" placeholder="Email" required><br/>
+<input type="text" name="email" placeholder ="Email" required><br/>
 
 <label> Password* </label><br/>
 <input type="password" name="password" placeholder="Password" required><br/><br/>
 <input type="submit"> <br/>
 
-<button class="button3">Sign In</button>
 
 ${errorMessage}
 </form>

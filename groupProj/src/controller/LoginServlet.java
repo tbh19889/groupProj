@@ -58,6 +58,7 @@ public class LoginServlet extends HttpServlet {
 		{
 			String errorMessage = "You have exceeded the number of login attempts.";
 			request.setAttribute("errorMessage", errorMessage);
+			url="login.jsp";
 		}
 		else { //proceed
 			
@@ -68,6 +69,7 @@ public class LoginServlet extends HttpServlet {
 			//encrypt the password to check against what's stored in DB
 			PasswordService pws = new PasswordService();
 			String encryptedPass = pws.encrypt(password);
+			System.out.println(encryptedPass);
 			
 			//create a userHelper class to make database calls, and call authenticate user method
 			CustomerHelper uh = new CustomerHelper("groupProj", "root", "811997914");

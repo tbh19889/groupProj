@@ -11,7 +11,7 @@
 <h1>Registration Page</h1>
 <h2>All Fields Required*</h2> 
 
-<form  action= “register” method= “post”> 
+<form  action= “register” method = "post"> 
 
 <label> First Name* </label><br/>
 <input type="text" name="firstName" placeholder="First Name" required><br/>
@@ -40,7 +40,6 @@
 <br/>
 <input type="submit"> <br/>
 
-<button class="button2">Create Account</button>
 
 </form>
 </body>
