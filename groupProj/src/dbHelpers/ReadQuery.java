@@ -55,37 +55,25 @@ public class ReadQuery {
 		try {
 			while(this.results.next()){
 				Product product = new Product();
-				product.setProductID(this.results.getString("SKU"));
-				product.setProductType(this.results.getString("ProductType"));
-				product.setFlavor(this.results.getString("Flavor"));
-				product.setCost(this.results.getDouble("Cost"));
-				product.setPrice(this.results.getDouble("Price"));
-				product.setQuantity(this.results.getInt("Quantity"));
+				product.setProductID(this.results.getInt("productID"));
+				product.setProductName(this.results.getString("productName"));
+				product.setProductPrice(this.results.getDouble("productPrice"));
+				product.setProductQuantity(this.results.getInt("productQuantity"));
 				
 				table +="<tr>";
 				table +="<td>";
-				table += product.getPrimaryKey();
+				table += product.getProductName();
 				table +="</td>";
 				table +="<td>";
-				table += product.getProductType();
+				table += product.getProductPrice();
 				table +="</td>";
 				table +="<td>";
-				table += product.getFlavor();
-				table +="</td>";
-				table +="<td>";
-				table += product.getCost();
-				table +="</td>";
-				table +="<td>";
-				table += product.getPrice();
-				table +="</td>";
-				table +="<td>";
-				table += product.getQuantity();
+				table += product.getProductQuantity();
 				table +="</td>";
 				table +="<td>";
 				
-				table += "<a href=update?primaryKey=" + product.getPrimaryKey() + " >update</a> <a href=delete?primaryKey=" + product.getPrimaryKey() + " >delete</a>";
-				table +="</td>";
-				table +="</tr>";
+				
+				
 				
 			}
 		} catch (SQLException e) {
