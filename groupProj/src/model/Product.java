@@ -1,14 +1,17 @@
 package model;
+import java.util.*;
 
 public class Product {
 	int productID;
 	String productName;
 	double productPrice;
-	int productQuantity;
+	int inventory;
+	
 	
 	public Product() {
 		this.productID = 0;
 		this.productName = "No productName";
+		
 	}
 
 	public Product(int productID, String productName) {
@@ -40,12 +43,19 @@ public class Product {
 		this.productPrice = productPrice;
 	}
 
-	public int getProductQuantity() {
-		return productQuantity;
+	public int getInventory() {
+		return inventory;
 	}
 
-	public void setProductQuantity(int productQuantity) {
-		this.productQuantity = productQuantity;
+	public void setInventory(int inventory) {
+		this.inventory = inventory;
+	}
+
+
+	public int deIncrement()
+	{
+		inventory--;
+		return inventory;
 	}
 	
 	

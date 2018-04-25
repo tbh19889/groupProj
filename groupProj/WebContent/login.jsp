@@ -8,11 +8,11 @@
 </head>
 
 <body>
-<h1>Log In Page</h1>
-<h2>Sign in your existing The Store account</h2>
-<h2>All Fields Required*</h2> 
+<h1 align="center">Log In</h1>
+<h4 align="center">Sign into your Kroger account</h4>
 
-<form  action= "login" method = "post"> 
+
+<form  action= "login" method = "post" align="center"> 
 
 <label> Email Address* </label><br/>
 <input type="text" name="email" placeholder ="Email" required><br/>

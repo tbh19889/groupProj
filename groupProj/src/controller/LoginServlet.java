@@ -69,11 +69,11 @@ public class LoginServlet extends HttpServlet {
 			//encrypt the password to check against what's stored in DB
 			PasswordService pws = new PasswordService();
 			String encryptedPass = pws.encrypt(password);
-			System.out.println(encryptedPass);
+		
 			
 			//create a userHelper class to make database calls, and call authenticate user method
-			CustomerHelper uh = new CustomerHelper("groupProj", "root", "811997914");
-			Customer user = uh.authenticateCustomer(email, encryptedPass);
+			CustomerHelper ch = new CustomerHelper();
+			Customer user = ch.authenticateCustomer(email, encryptedPass);
 			
 			//we've found a user that matches the credentials!
 			if(user != null)
@@ -83,7 +83,7 @@ public class LoginServlet extends HttpServlet {
 				session.invalidate();
 				session=request.getSession(true);
 				session.setAttribute("user", user);
-				url="product.jsp";
+				url="/read";
 			}
 			//user doesn't exist, redirect to previous page and show error
 			else {

@@ -14,14 +14,14 @@ public class CustomerHelper {
 	private PreparedStatement authenticateUserStatement;
 	private Connection connection;
 	
-	public CustomerHelper(String dbName, String uname, String pwd)
+	public CustomerHelper()
 {
-	String url = "jdbc:mysql://localhost:3306/" + dbName;
+	//String url = "jdbc:mysql://localhost:3306/" + dbName;
 	
 	// set up the driver
 	try {
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
-		this.connection = DriverManager.getConnection(url, uname, pwd);
+		this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/groupProj", "root", "811997914");
 		//create preparedstatement
 		authenticateUserStatement = connection.prepareStatement("select * from Customer where username=? and password=?");
 		
@@ -31,13 +31,15 @@ public class CustomerHelper {
 	}
 }
 	
+
+
 	public Customer authenticateCustomer(String username, String password)
 	{
 		Customer customer = null;
 		try {
 			//add parameters to the ?'s in the preparedstatement and execute
 			authenticateUserStatement.setString(1, username);
-			authenticateUserStatement.setString(1, password);
+			authenticateUserStatement.setString(2, password);
 			
 			ResultSet rs = authenticateUserStatement.executeQuery();
 			
@@ -49,7 +51,7 @@ public class CustomerHelper {
 		}
 		catch(SQLException e)
 		{
-			
+			e.printStackTrace();
 		}
 		return customer;
 	}

@@ -3,13 +3,17 @@ package dbHelpers;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Random;
 import java.sql.Connection;
 
 
 
 
 import model.Product;
+import model.CartItems;
 import model.Customer;
+
+
 
 
 public class AddQuery {
@@ -52,6 +56,36 @@ public class AddQuery {
 			e.printStackTrace();
 		}
 	}
+	
+	
+		
+		
+		public void addToCart(Product item)
+		{
+			CartItems cart = new CartItems();
+			
+			String query = "insert into cartItems (cartItemsID, productName, productPrice, productQuantity, Product_productID) values(?, ?, ?, ?, ?)";
+			cart.randomCartItemsID();
+//			cart.setProductQuantity();
+			try {
+				PreparedStatement ps = connection.prepareStatement(query);
+				
+				ps.setInt(1, cart.getCartItemsID());
+				ps.setString(2, item.getProductName());
+				ps.setDouble(3, item.getProductPrice());
+//				ps.setInt(4, item.getInventory());
+				ps.setInt(4, cart.incrementQuantity());
+				ps.setInt(5, item.getProductID());
+				
+				ps.executeUpdate();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+		
+	
 
 
 }

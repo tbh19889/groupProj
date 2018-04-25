@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dbHelpers.AddQuery;
 import model.Customer;
+import utilities.PasswordService;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -43,7 +44,7 @@ public class RegisterServlet extends HttpServlet {
 		
 		//get the data
 		Random r = new Random();
-		int customerID = r.nextInt(); 
+		int customerID = r.nextInt(5000); 
 		String firstName  = request.getParameter("firstName");
 		String lastName  = request.getParameter("lastName");
 		int phoneNum = Integer.parseInt(request.getParameter("phoneNum"));
@@ -52,6 +53,9 @@ public class RegisterServlet extends HttpServlet {
 		String paymentInfo = request.getParameter("paymentInfo");
 		String username = request.getParameter("username");
 		String password  = request.getParameter("password");
+		
+		PasswordService pws = new PasswordService();
+		String encryptedPass = pws.encrypt(password);		
 		
 		//setup a customer object
 		Customer customer = new Customer();
@@ -63,7 +67,7 @@ public class RegisterServlet extends HttpServlet {
 		customer.setAddress(address);
 		customer.setPaymentInfo(paymentInfo);
 		customer.setUsername(username);
-		customer.setPassword(password);
+		customer.setPassword(encryptedPass);
 		
 		//setup an addQuery Object
 		AddQuery aq = new AddQuery("groupProj", "root", "811997914");
@@ -72,7 +76,7 @@ public class RegisterServlet extends HttpServlet {
 		aq.doAddCustomer(customer);
 		
 		//pass execution control to the ReadServlet
-		String url = "/product.jsp";
+		String url = "/read";
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

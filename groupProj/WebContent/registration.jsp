@@ -8,10 +8,10 @@
 </head>
 
 <body>
-<h1>Registration Page</h1>
-<h2>All Fields Required*</h2> 
+<h1 align= "center">Registration Page</h1>
+<h5 align="center">*All Fields Required</h5> 
 
-<form  action= “register” method = "post"> 
+<form  action= "register" method = "post" align="center"> 
 
 <label> First Name* </label><br/>
 <input type="text" name="firstName" placeholder="First Name" required><br/>
